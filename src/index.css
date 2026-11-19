@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================================
+   Title: Global Theme & Cyber-Tech Styling | النمط العام والمظهر السيبراني
+   Description (EN): Establishes the dark cyber-tech aesthetic, custom color ramps, fonts, scrollbars, and shared utility classes used across the whole platform.
+   الوصف (AR): يحدد المظهر السيبراني الداكن ومخططات الألوان المخصصة والخطوط وأشرطة التمرير وفئات الأدوات المشتركة المستخدمة في جميع أنحاء المنصة.
+   ============================================================================ */
+
+:root {
+  --cyber-bg: #070b14;
+  --cyber-surface: #0d1424;
+  --cyber-surface-2: #131d33;
+  --cyber-border: #1e2a45;
+  --cyber-primary: #22d3ee;
+  --cyber-accent: #34d399;
+  --cyber-danger: #f43f5e;
+  --cyber-warn: #fbbf24;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  background-color: var(--cyber-bg);
+  color: #e2e8f0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-mono-cyber {
+  font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", "Menlo", monospace;
+}
+
+/* Custom cyber scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0f1c;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e2a45;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2d3d5e;
+}
+
+/* Grid background pattern */
+.cyber-grid-bg {
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Glow utilities */
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.25);
+}
+.glow-green {
+  box-shadow: 0 0 20px rgba(52, 211, 153, 0.25);
+}
+.glow-red {
+  box-shadow: 0 0 20px rgba(244, 63, 94, 0.35);
+}
+.glow-amber {
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.25);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+}
+.text-glow-red {
+  text-shadow: 0 0 10px rgba(244, 63, 94, 0.6);
+}
+.text-glow-green {
+  text-shadow: 0 0 10px rgba(52, 211, 153, 0.5);
+}
+
+/* Animated LED pulse */
+@keyframes ledPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+.led-pulse {
+  animation: ledPulse 1.4s ease-in-out infinite;
+}
+
+/* Alarm flashing for breach state */
+@keyframes alarmFlash {
+  0%, 100% { background-color: rgba(244, 63, 94, 0.12); }
+  50% { background-color: rgba(244, 63, 94, 0.35); }
+}
+.alarm-flash {
+  animation: alarmFlash 0.8s ease-in-out infinite;
+}
+
+/* Buzzer ring animation */
+@keyframes buzzerRing {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  20% { transform: rotate(-8deg) scale(1.08); }
+  40% { transform: rotate(8deg) scale(1.08); }
+  60% { transform: rotate(-6deg) scale(1.05); }
+  80% { transform: rotate(6deg) scale(1.05); }
+}
+.buzzer-ring {
+  animation: buzzerRing 0.4s ease-in-out infinite;
+}
+
+/* Scan line effect for terminal */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+.scanline::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent, rgba(34, 211, 238, 0.06), transparent);
+  height: 30%;
+  animation: scanline 3s linear infinite;
+  pointer-events: none;
+}
+
+/* Cursor blink */
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Slide / fade in */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up {
+  animation: fadeInUp 0.25s ease-out;
+}
+
+/* Fade in */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Spin slow */
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.spin-slow {
+  animation: spinSlow 8s linear infinite;
+}
